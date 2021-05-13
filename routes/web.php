@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DireccionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home/{usuario}');
+Route::get('/home/{usuario}',[UsersController::class, 'userprofile'])->name('usuario');
+Route::get('/home/{usuario}/direccion',[DireccionController::class, 'direccion'])->name('direccion');
 
 Auth::routes();
 
